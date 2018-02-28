@@ -5,6 +5,8 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.support.v7.app.AlertDialog;
 
+import com.zhss.sjlm.dialog.ProgressDialogUtil;
+
 import java.lang.ref.WeakReference;
 
 /**
@@ -42,7 +44,7 @@ public class HttpUiTips {
         lastContext=new WeakReference(mContext);
 
        // fatalEorTips.setTitle("获取数据失败");
-        fatalEorTips.setMessage(message+code);
+        fatalEorTips.setMessage(message);
         fatalEorTips.setButton(DialogInterface.BUTTON_POSITIVE, "知道了", (dialog, which) -> {
             fatalEorTips=null;
         });
@@ -54,7 +56,7 @@ public class HttpUiTips {
      * showDialog & dismissDialog 在http 请求开始的时候显示，结束的时候消失
      * 当然不是必须需要显示的 !
      */
-   /* public static void showDialog(final Context mContext, final String messageText) {
+    public static void showDialog(final Context mContext, final String messageText) {
         if (mContext == null || !(mContext instanceof Activity) || ((Activity) mContext).isFinishing())
             return;
 
@@ -67,6 +69,6 @@ public class HttpUiTips {
         if (mContext != null) {
             ((Activity) mContext).runOnUiThread(() -> ProgressDialogUtil.stopWaitDialog());
         }
-    }*/
+    }
 
 }

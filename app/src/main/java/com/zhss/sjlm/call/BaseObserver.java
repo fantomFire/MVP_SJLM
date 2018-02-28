@@ -41,11 +41,16 @@ public abstract class BaseObserver<T>  implements Observer<BaseResult<T>> {
     }
     public  BaseObserver(Context mContext) {
         this.mContext = mContext;
-
+        HttpUiTips.showDialog(mContext, null);
     }
 
     @Override
     public void onNext(BaseResult<T> response) {
+        HttpUiTips.dismissDialog(mContext);
+        if(!disposable.isDisposed()){
+            disposable.dispose();
+        }
+
         if (response.getStatus().equals(RESPONSE_CODE_OK) ) {
             onSuccess(response.getData());
         } else {
@@ -81,7 +86,7 @@ public abstract class BaseObserver<T>  implements Observer<BaseResult<T>> {
 
     @Override
     public void onError(Throwable e) {
-        System.out.println(e);
+        HttpUiTips.dismissDialog(mContext);
         e.printStackTrace();
         if (e instanceof HttpException) {
             HttpException httpException = (HttpException) e;
@@ -110,7 +115,7 @@ public abstract class BaseObserver<T>  implements Observer<BaseResult<T>> {
 
     @Override
     public void onComplete() {
-
+        HttpUiTips.dismissDialog(mContext);
     }
     /**
      * 获取详细的错误的信息 errorCode,errorMsg ,   这里和Api 结构有关，这里和Api 结构有关 ！
