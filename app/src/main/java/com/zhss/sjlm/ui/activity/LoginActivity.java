@@ -15,6 +15,9 @@ import com.zhss.sjlm.present.LongPresent;
 import com.zhss.sjlm.ui.contact.LoginContact;
 import com.zhss.sjlm.ui.contact.LoginContact.LoginPren;
 
+import java.util.Arrays;
+import java.util.List;
+
 import butterknife.BindView;
 import butterknife.OnClick;
 
@@ -55,20 +58,21 @@ public class LoginActivity extends BaseMvpActivity<LoginPren> implements LoginCo
     }
 
 
-
     @OnClick({R.id.btn_login, R.id.tv_register, R.id.tv_forget})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btn_login:
 
                 mPresenter.getData(edtPhone.getText().toString(), edtPass.getText().toString());
-               // startActivity(new Intent(this, MainActivity.class));
+                // startActivity(new Intent(this, MainActivity.class));
                 break;
             case R.id.tv_register:
-             //   startActivity(new Intent(this, RegisterActivity.class));
+                //   startActivity(new Intent(this, RegisterActivity.class));
                 break;
             case R.id.tv_forget:
-              //  startActivity(new Intent(this, ForgetPassActivity.class));
+                //  startActivity(new Intent(this, ForgetPassActivity.class));
+                llContent.setOnClickListener((v) -> System.out.println("hahah"));
+
                 break;
         }
     }

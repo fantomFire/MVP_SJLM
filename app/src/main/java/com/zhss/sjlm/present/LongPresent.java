@@ -36,19 +36,15 @@ public class LongPresent extends BasePresentipl<LoginContact.view> implements Lo
         view.showLoading();
         RetrofitClient.getInstance(mContext).provideApiService().loading(mPhone, mPass)
                 .compose(RxSchedulerHepler.<BaseResult<LoginBean>>io_main())
-                .doOnSubscribe(new Consumer<Disposable>() {
-                    @Override
-                    public void accept(@NonNull Disposable disposable) throws Exception {
-                        addDisposable(disposable);
-                        view.showLoading();
-                    }
-                })
+                .doOnSubscribe(disposable ->
+                        addDisposable(disposable)
+                )
 
                 .subscribe(new BaseObserver<LoginBean>(mContext) {
                                @Override
                                public void onSuccess(LoginBean loginBean) {
                                    System.out.println("成功" + loginBean.toString());
-                                    view.setData(loginBean);
+                                   view.setData(loginBean);
                                }
 
                                @Override
