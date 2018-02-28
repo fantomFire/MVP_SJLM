@@ -23,6 +23,8 @@ public class HttpUiTips {
         //只有主线程才有提示
         if(!Thread.currentThread().getName().toString().equals("main")){
             return;
+
+
         }
         //Activity作为窗口的载体不能无效的
         if (mContext == null || !(mContext instanceof Activity) || ((Activity) mContext).isFinishing())
