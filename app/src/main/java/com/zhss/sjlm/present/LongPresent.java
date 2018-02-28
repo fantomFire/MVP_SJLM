@@ -48,12 +48,14 @@ public class LongPresent extends BasePresentipl<LoginContact.view> implements Lo
                                @Override
                                public void onSuccess(LoginBean loginBean) {
                                    System.out.println("成功" + loginBean.toString());
-                                   view.setData(loginBean);
+                                    view.setData(loginBean);
                                }
 
                                @Override
                                public void onFailure(String code, String message) {
                                    super.onFailure(code, message);
+                                   System.out.println("errir" + message);
+                                   view.showErrorMsg(message);
                                }
                            }
                 );

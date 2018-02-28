@@ -6,41 +6,7 @@ package com.zhss.sjlm.bean;
 
 public class LoginBean {
 
-    /**
-     * msg : 登录成功！
-     * status : 200
-     * data : {"id":"38","nicheng":"18192600365","mobile":"18192600365"}
-     */
 
-    private String msg;
-    private String status;
-    private DataBean data;
-
-    public String getMsg() {
-        return msg;
-    }
-
-    public void setMsg(String msg) {
-        this.msg = msg;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public DataBean getData() {
-        return data;
-    }
-
-    public void setData(DataBean data) {
-        this.data = data;
-    }
-
-    public static class DataBean {
         /**
          * id : 38
          * nicheng : 18192600365
@@ -74,14 +40,15 @@ public class LoginBean {
         public void setMobile(String mobile) {
             this.mobile = mobile;
         }
+
+        @Override
+        public String toString() {
+            return "DataBean{" +
+                    "id='" + id + '\'' +
+                    ", nicheng='" + nicheng + '\'' +
+                    ", mobile='" + mobile + '\'' +
+                    '}';
+        }
     }
 
-    @Override
-    public String toString() {
-        return "LoginBean{" +
-                "msg='" + msg + '\'' +
-                ", status='" + status + '\'' +
-                ", data=" + data +
-                '}';
-    }
-}
+

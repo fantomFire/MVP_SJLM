@@ -3,7 +3,6 @@ package com.zhss.sjlm.call;
 import android.content.Context;
 import android.net.ParseException;
 import android.support.annotation.CallSuper;
-import android.util.Log;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
@@ -70,7 +69,7 @@ public abstract class BaseObserver<T>  implements Observer<BaseResult<T>> {
     public void onFailure(String code, String message) {
 
         if (code.equals(RESPONSE_CODE_FAILED)  && mContext != null) {
-            HttpUiTips.alertTip(mContext, message, code);
+           // HttpUiTips.alertTip(mContext, message, code);
         } else {
             disposeEorCode(message, code);
         }
@@ -127,7 +126,6 @@ public abstract class BaseObserver<T>  implements Observer<BaseResult<T>> {
         try {   //我们的项目需要的UniCode转码，不是必须要的！
             errorBodyStr = TextConvertUtils.convertUnicode(httpException.response().errorBody().string());
         } catch (IOException ioe) {
-            Log.e("errorBodyStr ioe:", ioe.toString());
         }
 
         try {

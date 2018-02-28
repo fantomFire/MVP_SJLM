@@ -5,6 +5,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.zhss.sjlm.MainActivity;
 import com.zhss.sjlm.R;
@@ -74,6 +75,8 @@ public class LoginActivity extends BaseMvpActivity<LoginPren> implements LoginCo
 
     @Override
     public void setData(LoginBean dataList) {
+        Toast.makeText(this, "登陆成功", Toast.LENGTH_SHORT).show();
+
         startActivity(MainActivity.class);
     }
 }
