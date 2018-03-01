@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.content.Context;
 import android.support.v4.app.Fragment;
 
+import com.zhss.sjlm.common.ApiService;
+import com.zhss.sjlm.common.http.RetrofitClient;
 import com.zhss.sjlm.ui.BaseView;
 
 import io.reactivex.disposables.CompositeDisposable;
@@ -14,8 +16,10 @@ import io.reactivex.disposables.Disposable;
  */
 
 public abstract class BasePresentipl<V extends BaseView> implements BasePresenter {
+
     protected V view;
     protected Context mContext;
+    public ApiService apiService;
 
     public BasePresentipl(V view) {
         this.view = view;
@@ -31,6 +35,7 @@ public abstract class BasePresentipl<V extends BaseView> implements BasePresente
         } else {
             mContext = ((Fragment) view).getActivity();
         }
+        apiService = RetrofitClient.getInstance(mContext).provideApiService();
     }
 
     @Override

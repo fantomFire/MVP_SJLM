@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/MVP_SJLM.iml" filepath="$PROJECT_DIR$/MVP_SJLM.iml" />
+      <module fileurl="file://C:\Users\win7-64\Desktop\Mvp-RxJava-Retrofit-master\SJLM\MVP_SJLM.iml" filepath="C:\Users\win7-64\Desktop\Mvp-RxJava-Retrofit-master\SJLM\MVP_SJLM.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SJLM.iml" filepath="$PROJECT_DIR$/SJLM.iml" />
       <module fileurl="file://C:\Users\Administrator\Desktop\MVP_SJLM\SJLM.iml" filepath="C:\Users\Administrator\Desktop\MVP_SJLM\SJLM.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://C:\Users\Administrator\Desktop\MVP_SJLM\app\app.iml" filepath="C:\Users\Administrator\Desktop\MVP_SJLM\app\app.iml" />

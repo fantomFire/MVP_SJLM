@@ -3,10 +3,12 @@ package com.zhss.sjlm.base;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Window;
 
 import com.zhss.sjlm.MyApplication;
+import com.zhss.sjlm.R;
+import com.zhss.sjlm.tools.StatusBarUtils;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
@@ -28,17 +30,22 @@ public abstract class BaseActivity extends AppCompatActivity {
 
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate( Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(getLayoutId());
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
 
+        setContentView(getLayoutId());
+        StatusBarUtils.setColor(this, getResources().getColor(R.color.statusBarColor));
         initStatusLayout();
 
         //ButterKnife 的绑定
         mUnbinder = ButterKnife.bind(this);
         this.mApplication = (MyApplication) getApplication();
         initView();
+        initData();
     }
+
+    protected abstract void initData();
 
     /**
      * 子类如果需要多状态布局，需要重写此方法来配置多状态布局

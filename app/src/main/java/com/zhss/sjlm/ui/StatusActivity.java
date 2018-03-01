@@ -15,6 +15,11 @@ public class StatusActivity  extends BaseActivity {
 
     private StatusLayoutManager mStatusLayoutManager;
 
+    @Override
+    protected void initData() {
+
+    }
+
     //测试使用多状态布局
     @Override
     public void initStatusLayout() {

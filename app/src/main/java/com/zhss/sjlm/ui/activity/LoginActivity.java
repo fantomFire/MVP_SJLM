@@ -13,10 +13,6 @@ import com.zhss.sjlm.base.BaseMvpActivity;
 import com.zhss.sjlm.bean.LoginBean;
 import com.zhss.sjlm.present.LongPresent;
 import com.zhss.sjlm.ui.contact.LoginContact;
-import com.zhss.sjlm.ui.contact.LoginContact.LoginPren;
-
-import java.util.Arrays;
-import java.util.List;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -26,7 +22,7 @@ import butterknife.OnClick;
  * Created by win7-64 on 2018/2/27.
  */
 
-public class LoginActivity extends BaseMvpActivity<LoginPren> implements LoginContact.view {
+public class LoginActivity extends BaseMvpActivity<LongPresent> implements LoginContact.view {
 
 
     @BindView(R.id.edt_phone)
@@ -49,11 +45,12 @@ public class LoginActivity extends BaseMvpActivity<LoginPren> implements LoginCo
 
     @Override
     protected void initData() {
+        startActivity(MainActivity.class);
 
     }
 
     @Override
-    public LoginPren createPresenter() {
+    public LongPresent createPresenter() {
         return new LongPresent(this);
     }
 
@@ -80,7 +77,7 @@ public class LoginActivity extends BaseMvpActivity<LoginPren> implements LoginCo
     @Override
     public void setData(LoginBean dataList) {
         Toast.makeText(this, "登陆成功", Toast.LENGTH_SHORT).show();
-
         startActivity(MainActivity.class);
+
     }
 }
