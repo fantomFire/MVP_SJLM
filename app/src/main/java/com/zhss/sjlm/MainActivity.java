@@ -17,6 +17,7 @@ import com.zhss.sjlm.tools.StatusBarUtils;
 import com.zhss.sjlm.ui.adapter.MyPagerAdapter;
 import com.zhss.sjlm.ui.fragment.ClassifyFragment;
 import com.zhss.sjlm.ui.fragment.HomeFragment;
+import com.zhss.sjlm.ui.fragment.MerchantFragment;
 
 import net.lucode.hackware.magicindicator.MagicIndicator;
 import net.lucode.hackware.magicindicator.ViewPagerHelper;
@@ -56,7 +57,7 @@ public class MainActivity extends FragmentActivity {
     private HomeFragment homeFragment;
     private MyPagerAdapter myPagerAdapter;
     private ClassifyFragment classifyFragment;
-    //  private MerchantFragment merchantFragment;
+     private MerchantFragment merchantFragment;
       /*  private DiscoverFragment discoverFragment;
        private MineFragment mineFragment;
        private MyPagerAdapter myPagerAdapter;
@@ -88,13 +89,14 @@ public class MainActivity extends FragmentActivity {
             classifyFragment = new ClassifyFragment();
             mPagers.add(classifyFragment);
         }
-        /*
+
 //        if (!member_type.equals("1")) {
         if (merchantFragment == null) {
             merchantFragment = new MerchantFragment();
             mPagers.add(merchantFragment);
 //            }
         }
+        /*
         if (discoverFragment == null) {
             discoverFragment = new DiscoverFragment();
             mPagers.add(discoverFragment);

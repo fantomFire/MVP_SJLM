@@ -39,7 +39,6 @@ public class LongPresent extends BasePresentipl<LoginContact.view> implements Lo
                 .subscribe(new BaseObserver<LoginBean>(mContext) {
                                @Override
                                public void onSuccess(LoginBean loginBean) {
-                                   System.out.println("成功" + loginBean.toString());
                                    view.setData(loginBean);
                                }
 
