@@ -67,12 +67,13 @@ public abstract class BaseObserver<T>  implements Observer<BaseResult<T>> {
      */
     @CallSuper  //if overwrite,you should let it run.
     public void onFailure(String code, String message) {
-
+        disposeEorCode(message, code);
+        /*System.out.println("错误mcontext"+mContext);
         if (code.equals(RESPONSE_CODE_FAILED)  && mContext != null) {
            // HttpUiTips.alertTip(mContext, message, code);
         } else {
             disposeEorCode(message, code);
-        }
+        }*/
     }
 
     /**
@@ -80,7 +81,7 @@ public abstract class BaseObserver<T>  implements Observer<BaseResult<T>> {
      * @param code
      */
     private final void disposeEorCode(String message, String code) {
-        Toast.makeText(mContext, message + "   code=" + code, Toast.LENGTH_SHORT).show();
+        Toast.makeText(mContext, message , Toast.LENGTH_SHORT).show();
     }
 
     @Override

@@ -9,10 +9,6 @@ import com.zhss.sjlm.common.http.RetrofitClient;
 import com.zhss.sjlm.rxHelper.RxSchedulerHepler;
 import com.zhss.sjlm.ui.contact.LoginContact;
 
-import io.reactivex.annotations.NonNull;
-import io.reactivex.disposables.Disposable;
-import io.reactivex.functions.Consumer;
-
 /**
  * Created by win7-64 on 2018/2/27.
  */
@@ -47,12 +43,6 @@ public class LongPresent extends BasePresentipl<LoginContact.view> implements Lo
                                    view.setData(loginBean);
                                }
 
-                               @Override
-                               public void onFailure(String code, String message) {
-                                   super.onFailure(code, message);
-                                   System.out.println("errir" + message);
-                                   view.showErrorMsg(message);
-                               }
                            }
                 );
 

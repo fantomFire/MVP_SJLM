@@ -2,6 +2,7 @@ package com.zhss.sjlm.base;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.widget.Toast;
 
 import com.zhss.sjlm.present.BasePresentipl;
 import com.zhss.sjlm.ui.BaseView;
@@ -66,7 +67,8 @@ public abstract class BaseMvpFragment <P  extends BasePresentipl> extends BaseFr
 
     @Override
     public void showErrorMsg(String msg) {
-
+        System.out.println("----------------"+msg);
+        Toast.makeText(mActivity, msg, Toast.LENGTH_SHORT).show();
 
     }
 
