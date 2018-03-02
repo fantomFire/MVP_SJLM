@@ -32,11 +32,9 @@ public interface ApiService {
     Observable<BaseResult<List<CategreyBean>>> getCateData();
 
     //发现栏目
-    @POST("Find/findindex")
+    @GET("Find/findindex")
     Observable<BaseResult<List<DiscoverTitleBean>>> getDiscoverTitle();
 
-    @GET("Find/findindex")
-    Observable<DiscoverTitleBean> getTitle();
  /*
     //获取验证码
     @POST("Service/getyzm")

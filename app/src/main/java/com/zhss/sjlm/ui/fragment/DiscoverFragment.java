@@ -25,7 +25,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.Unbinder;
 
 /**
  * Created by win7-64 on 2018/1/23.
@@ -36,10 +35,6 @@ public class DiscoverFragment extends BaseMvpFragment<DiscoverPresentImpl> imple
     MagicIndicator discoverMigic;
     @BindView(R.id.discover_vp)
     ViewPager discoverVp;
-;
-    Unbinder unbinder1;
-
-
     private List<DiscoverTitleBean> mtitles;
     private ItemFragment itemFragment;
     private List<Fragment> fragments = new ArrayList<>();
@@ -90,19 +85,19 @@ public class DiscoverFragment extends BaseMvpFragment<DiscoverPresentImpl> imple
 */
 
     //设置栏目数据
-    private void initTitle() {
+    private void initTitle(List<DiscoverTitleBean> mtitles) {
         CommonNavigator commonNavigator = new CommonNavigator(mActivity);
         commonNavigator.setAdjustMode(true);
         commonNavigator.setAdapter(new CommonNavigatorAdapter() {
             @Override
             public int getCount() {
-                return mtitles == null ? 0 : mtitles.size();
+              return   mtitles == null ? 0 :mtitles.size();
             }
 
             @Override
             public IPagerTitleView getTitleView(Context context, final int i) {
                 ColorTransitionPagerTitleView simplePagerTitleView = new ColorTransitionPagerTitleView(context);
-               // simplePagerTitleView.setText(mtitles.get(i).getFind_name());
+               simplePagerTitleView.setText(mtitles.get(i).getFind_name());
                 simplePagerTitleView.setTextSize(17);
                 simplePagerTitleView.setNormalColor(Color.parseColor("#444444"));
                 simplePagerTitleView.setSelectedColor(Color.parseColor("#df1839"));
@@ -144,25 +139,10 @@ public class DiscoverFragment extends BaseMvpFragment<DiscoverPresentImpl> imple
     public DiscoverPresentImpl createPresenter() {
         return new DiscoverPresentImpl(this);
     }
-/*
-    @Override
-    public void loadSuccess(Object data) {
-        DiscoverTitleBean datas = (DiscoverTitleBean) data;
-        System.out.println(data);
-        if (datas.getStatus().equals("200")) {
-          //  mstateview.showContent();
-            mtitles = datas.getData();
-          initdatas();
-          initTitle();
-        }
-
-    }*/
 
     @Override
     protected void initData() {
-        System.out.println("mPresenter"+mPresenter);
         mPresenter.getTitle();
-       // mPresenter.getData();
     }
 
     @Override
@@ -171,7 +151,9 @@ public class DiscoverFragment extends BaseMvpFragment<DiscoverPresentImpl> imple
     }
 
     @Override
-    public void setData(List<DiscoverTitleBean> data) {
-        System.out.println("发现"+data.size());
+    public void setData(List<DiscoverTitleBean> mtitles) {
+        System.out.println("发现"+mtitles.size());
+
+        initTitle(mtitles);
     }
 }
