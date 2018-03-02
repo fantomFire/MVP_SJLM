@@ -86,6 +86,7 @@ public abstract class BaseObserver<T>  implements Observer<BaseResult<T>> {
 
     @Override
     public void onError(Throwable e) {
+        System.out.println("3332422234234"+e);
         HttpUiTips.dismissDialog(mContext);
         e.printStackTrace();
         if (e instanceof HttpException) {
@@ -123,6 +124,7 @@ public abstract class BaseObserver<T>  implements Observer<BaseResult<T>> {
      * 但是是怎么导致401的？我们的服务器会在respose.errorBody 中的content 中说明
      */
     private final void getErrorMsg(HttpException httpException) {
+        System.out.println("httpException"+httpException);
         String errorBodyStr = "";
         try {   //我们的项目需要的UniCode转码，不是必须要的！
             errorBodyStr = TextConvertUtils.convertUnicode(httpException.response().errorBody().string());

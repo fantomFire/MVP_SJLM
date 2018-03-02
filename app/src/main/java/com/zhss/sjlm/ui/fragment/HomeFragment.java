@@ -163,7 +163,8 @@ public class HomeFragment extends BaseMvpFragment<HomePresentImpl>implements Hom
     }
     @Override
     protected void initData() {
-       // mPresenter.getData();
+        System.out.println("当前P"+mPresenter);
+    mPresenter.getData();
     }
 
 

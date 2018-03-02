@@ -16,6 +16,7 @@ import com.zhss.sjlm.tools.PrefUtils;
 import com.zhss.sjlm.tools.StatusBarUtils;
 import com.zhss.sjlm.ui.adapter.MyPagerAdapter;
 import com.zhss.sjlm.ui.fragment.ClassifyFragment;
+import com.zhss.sjlm.ui.fragment.DiscoverFragment;
 import com.zhss.sjlm.ui.fragment.HomeFragment;
 import com.zhss.sjlm.ui.fragment.MerchantFragment;
 
@@ -58,7 +59,8 @@ public class MainActivity extends FragmentActivity {
     private MyPagerAdapter myPagerAdapter;
     private ClassifyFragment classifyFragment;
      private MerchantFragment merchantFragment;
-      /*  private DiscoverFragment discoverFragment;
+    private DiscoverFragment discoverFragment;
+      /*
        private MineFragment mineFragment;
        private MyPagerAdapter myPagerAdapter;
        private ClassifyFragment classifyFragment;
@@ -96,11 +98,12 @@ public class MainActivity extends FragmentActivity {
             mPagers.add(merchantFragment);
 //            }
         }
-        /*
+
         if (discoverFragment == null) {
             discoverFragment = new DiscoverFragment();
             mPagers.add(discoverFragment);
         }
+          /*
         if (mineFragment == null) {
             mineFragment = new MineFragment();
             mPagers.add(mineFragment);

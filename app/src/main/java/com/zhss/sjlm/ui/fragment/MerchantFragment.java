@@ -16,7 +16,7 @@ public class MerchantFragment extends BaseMvpFragment<MerchantPresentImpl> imple
 
     @Override
     protected void initData() {
-        mPresenter.getMerchantData();
+
     }
 
     @Override

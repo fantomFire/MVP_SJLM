@@ -5,10 +5,10 @@ import com.zhss.sjlm.present.BasePresenter;
 import com.zhss.sjlm.ui.BaseView;
 
 /**
- * Created by win7-64 on 2018/3/1.
+ * Created by win7-64 on 2018/3/2.
  */
 
-public interface HomeContact {
+public interface DiscoverItemContact {
     interface view extends BaseView {
         /**
          * 设置数据
@@ -18,8 +18,13 @@ public interface HomeContact {
         void setData(LoginBean dataList);
     }
 
-    interface HomePresent extends BasePresenter {
-
-        void getData();
+    interface DiscoverItemPresent extends BasePresenter {
+        /**
+         * 获取数据
+         * @param s
+         * @param toString
+         */
+        void getData(String s, String toString);
     }
+
 }

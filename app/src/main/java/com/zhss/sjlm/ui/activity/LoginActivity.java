@@ -45,8 +45,7 @@ public class LoginActivity extends BaseMvpActivity<LongPresent> implements Login
 
     @Override
     protected void initData() {
-        startActivity(MainActivity.class);
-
+     startActivity(MainActivity.class);
     }
 
     @Override

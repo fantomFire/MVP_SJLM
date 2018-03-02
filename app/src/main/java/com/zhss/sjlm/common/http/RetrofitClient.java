@@ -4,13 +4,13 @@ import android.content.Context;
 
 import com.zhss.sjlm.common.ApiService;
 import com.zhss.sjlm.common.Contacts;
-import com.zhss.sjlm.common.fastjsonconverter.FastJsonConvertFactory;
 
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
  * Created by 解晓辉  on 2017/5/24 20:49 *
@@ -66,7 +66,7 @@ public class RetrofitClient {
             mRetrofit = new Retrofit.Builder()
                     .baseUrl(Contacts.BASE_URL)
                     .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-                    .addConverterFactory(FastJsonConvertFactory.create())
+                    .addConverterFactory(GsonConverterFactory.create())
                     .client(provideOkHttpClient()).build();
         }
 
