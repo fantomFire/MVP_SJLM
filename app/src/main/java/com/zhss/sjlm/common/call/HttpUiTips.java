@@ -1,11 +1,11 @@
-package com.zhss.sjlm.call;
+package com.zhss.sjlm.common.call;
 
 import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.support.v7.app.AlertDialog;
 
-import com.zhss.sjlm.dialog.ProgressDialogUtil;
+import com.zhss.sjlm.common.dialog.ProgressDialogUtil;
 
 import java.lang.ref.WeakReference;
 

@@ -1,4 +1,4 @@
-package com.zhss.sjlm.fastjsonconverter;
+package com.zhss.sjlm.common.fastjsonconverter;
 
 
 import com.alibaba.fastjson.JSON;

@@ -1,8 +1,8 @@
 package com.zhss.sjlm.present;
 
 import com.zhss.sjlm.bean.CategreyBean;
-import com.zhss.sjlm.call.BaseObserver;
-import com.zhss.sjlm.rxHelper.RxSchedulerHepler;
+import com.zhss.sjlm.common.call.BaseObserver;
+import com.zhss.sjlm.common.RxSchedulerHepler;
 import com.zhss.sjlm.ui.contact.MerchantContact;
 
 import java.util.List;

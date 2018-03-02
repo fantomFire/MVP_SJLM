@@ -4,7 +4,7 @@ import android.content.Context;
 
 import com.zhss.sjlm.common.ApiService;
 import com.zhss.sjlm.common.Contacts;
-import com.zhss.sjlm.fastjsonconverter.FastJsonConvertFactory;
+import com.zhss.sjlm.common.fastjsonconverter.FastJsonConvertFactory;
 
 import java.util.concurrent.TimeUnit;
 

@@ -4,9 +4,9 @@ import android.text.TextUtils;
 
 import com.zhss.sjlm.bean.BaseResult;
 import com.zhss.sjlm.bean.LoginBean;
-import com.zhss.sjlm.call.BaseObserver;
+import com.zhss.sjlm.common.call.BaseObserver;
 import com.zhss.sjlm.common.http.RetrofitClient;
-import com.zhss.sjlm.rxHelper.RxSchedulerHepler;
+import com.zhss.sjlm.common.RxSchedulerHepler;
 import com.zhss.sjlm.ui.contact.LoginContact;
 
 /**

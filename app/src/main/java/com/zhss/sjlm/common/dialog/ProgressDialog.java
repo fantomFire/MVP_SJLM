@@ -1,4 +1,4 @@
-package com.zhss.sjlm.dialog;
+package com.zhss.sjlm.common.dialog;
 
 import android.app.Dialog;
 import android.content.Context;
