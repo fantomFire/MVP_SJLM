@@ -17,7 +17,7 @@ public class DiscoverPresentImpl extends BasePresentipl<DiscoverContact.view> im
     }
 
     @Override
-    public void getData() {
+    public void getData(String currentId) {
 
     }
 

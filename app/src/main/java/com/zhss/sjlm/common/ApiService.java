@@ -2,6 +2,7 @@ package com.zhss.sjlm.common;
 
 import com.zhss.sjlm.bean.BaseResult;
 import com.zhss.sjlm.bean.CategreyBean;
+import com.zhss.sjlm.bean.DiscoverBean;
 import com.zhss.sjlm.bean.DiscoverTitleBean;
 import com.zhss.sjlm.bean.HomeDataBean;
 import com.zhss.sjlm.bean.LoginBean;
@@ -34,6 +35,9 @@ public interface ApiService {
     //发现栏目
     @GET("Find/findindex")
     Observable<BaseResult<List<DiscoverTitleBean>>> getDiscoverTitle();
+    //栏目信息
+    @GET("Find/goodsdex")
+    Observable<BaseResult<List<DiscoverBean>>> getItemData(@Query("find") int find);
 
  /*
     //获取验证码
@@ -53,9 +57,7 @@ public interface ApiService {
     @GET("userinfo/index")
     Observable<MineInfoBean> getUserInfo(@Query("uid")String uid);
 
-    //栏目信息
-    @GET("Find/goodsdex")
-    Observable<DiscoverBean> getItemData(@Query("find") String find);
+
    */
 
 }

@@ -64,12 +64,15 @@ public abstract class BaseMvpFragment <P  extends BasePresentipl> extends Fragme
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        System.out.println("111111111111111111");
         mPresenter = createPresenter();
-        System.out.println("22222222222");
         mApplication = (MyApplication) mActivity.getApplication();
         initView();
+        initdis();
 
+    }
+
+    public void initdis() {
+        
     }
 
     protected abstract void initView();

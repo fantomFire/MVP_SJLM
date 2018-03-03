@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="wrap_content">
+    <TextView
+        android:id="@+id/ver_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="香格里拉大酒店"
+        android:textSize="16sp"
+        android:textColor="@color/colorBlack"
+        android:layout_marginBottom="16dp"
+        />
+    <ImageView
+        android:id="@+id/ver_img"
+        android:layout_width="match_parent"
+        android:layout_height="187dp"
+        android:scaleType="fitXY"
+        />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="17dp"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/ver_address"
+            android:textColor="@color/color666"
+            android:textSize="14sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/ver_distance"
+            android:layout_width="wrap_content"
+            android:textColor="@color/color666"
+            android:textSize="14sp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp"
+            android:text="约8848km"
+            android:layout_height="wrap_content" />
+
+
+    </RelativeLayout>
+</LinearLayout>

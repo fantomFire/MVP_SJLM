@@ -10,6 +10,7 @@ import com.zhss.sjlm.R;
 import com.zhss.sjlm.base.BaseMvpFragment;
 import com.zhss.sjlm.bean.DiscoverTitleBean;
 import com.zhss.sjlm.present.DiscoverPresentImpl;
+import com.zhss.sjlm.ui.adapter.FrageVpAdapter;
 import com.zhss.sjlm.ui.contact.DiscoverContact;
 
 import net.lucode.hackware.magicindicator.MagicIndicator;
@@ -46,7 +47,7 @@ public class DiscoverFragment extends BaseMvpFragment<DiscoverPresentImpl> imple
     }
 
 
-   /* protected void initdatas() {
+   protected void initdatas(List<DiscoverTitleBean> mtitles) {
         if (mtitles == null) {
             return;
         }
@@ -67,8 +68,8 @@ public class DiscoverFragment extends BaseMvpFragment<DiscoverPresentImpl> imple
 
             @Override
             public void onPageSelected(int position) {
-                discoverMigic.onPageSelected(position);
                 itemFragment.setIndex(mtitles.get(position).getFind_id());
+                discoverMigic.onPageSelected(position);
 
             }
 
@@ -77,12 +78,11 @@ public class DiscoverFragment extends BaseMvpFragment<DiscoverPresentImpl> imple
                 discoverMigic.onPageScrollStateChanged(state);
             }
         });
-        discoverVp.setOffscreenPageLimit(mtitles.size());
+      //  discoverVp.setOffscreenPageLimit(mtitles.size());
         discoverVp.setCurrentItem(0);
         //栏目数据正确 设置
-        initTitle();
+      //  initTitle();
     }
-*/
 
     //设置栏目数据
     private void initTitle(List<DiscoverTitleBean> mtitles) {
@@ -106,8 +106,8 @@ public class DiscoverFragment extends BaseMvpFragment<DiscoverPresentImpl> imple
                     @Override
                     public void onClick(View view) {
 
+                        itemFragment.setIndex(mtitles.get(i).getFind_id());
                         discoverVp.setCurrentItem(i,false);
-                       // itemFragment.setIndex(mtitles.get(i).getFind_id());
 
 
                     }
@@ -155,5 +155,6 @@ public class DiscoverFragment extends BaseMvpFragment<DiscoverPresentImpl> imple
         System.out.println("发现"+mtitles.size());
 
         initTitle(mtitles);
+        initdatas(mtitles);
     }
 }

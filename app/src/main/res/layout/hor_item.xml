@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_marginLeft="10dp"
+    android:layout_marginTop="16dp"
+    android:layout_height="wrap_content">
+    <ImageView
+        android:id="@+id/foot_img"
+        android:layout_width="107dp"
+        android:layout_height="93dp"
+        android:background="@mipmap/img08"
+        />
+    <TextView
+        android:id="@+id/food_name"
+        android:layout_width="wrap_content"
+        android:text="四季餐厅"
+        android:textColor="@color/colorBlack"
+        android:layout_toRightOf="@id/foot_img"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="6dp"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/food_address"
+        android:layout_width="wrap_content"
+        android:text="小寨"
+        android:textColor="@color/color666"
+        android:layout_toRightOf="@id/foot_img"
+        android:layout_below="@id/food_name"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="6dp"
+        android:layout_height="wrap_content" />
+
+</RelativeLayout>

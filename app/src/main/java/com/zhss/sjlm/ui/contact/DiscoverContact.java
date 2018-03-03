@@ -18,8 +18,7 @@ public interface DiscoverContact {
 
     interface DiscoverPresent extends BasePresenter {
 
-        void getData();
-
+        void getData(String currentId);
         void getTitle();
     }
 
