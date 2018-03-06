@@ -47,7 +47,6 @@ public class ItemFragment extends BaseMvpFragment<ItemFragmentPrenImpl> implemen
 
     @Override
     public void initdis() {
-        System.out.println("currentId33333"+currentId);
         mPresenter.getData(currentId);
     }
 
@@ -87,9 +86,7 @@ public class ItemFragment extends BaseMvpFragment<ItemFragmentPrenImpl> implemen
 
 
     public void setIndex(String find_id) {
-        System.out.println("find_id1111"+find_id);
         this.currentId = Integer.parseInt(find_id);
-        System.out.println("find_id222"+currentId);
     }
     @Override
     public void setData(List<DiscoverBean> discoverBeans) {
@@ -97,11 +94,10 @@ public class ItemFragment extends BaseMvpFragment<ItemFragmentPrenImpl> implemen
             for(int i=0 ;i<discoverBeans.size();i++){
 
                 if (i% 5 == 3 || (i % 5 == 4)) {
-                    System.out.println("pos"+i);
-
-                   discoverBeans.get(i).setStyle(1);
-                } else {
                     discoverBeans.get(i).setStyle(2);
+                } else {
+                    discoverBeans.get(i).setStyle(1);
+
                 }
             }
         }

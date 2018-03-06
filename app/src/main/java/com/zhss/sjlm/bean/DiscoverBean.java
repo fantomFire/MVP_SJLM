@@ -15,7 +15,7 @@ public class DiscoverBean implements MultiItemEntity {
     }
 
     public void setStyle(int style) {
-        Style = style;
+        this.Style = style;
     }
 
     /**
