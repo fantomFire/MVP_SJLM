@@ -4,7 +4,6 @@ import android.content.Context;
 import android.graphics.Color;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
-import android.view.View;
 
 import com.zhss.sjlm.R;
 import com.zhss.sjlm.base.BaseMvpFragment;
@@ -102,16 +101,12 @@ public class DiscoverFragment extends BaseMvpFragment<DiscoverPresentImpl> imple
                 simplePagerTitleView.setNormalColor(Color.parseColor("#444444"));
                 simplePagerTitleView.setSelectedColor(Color.parseColor("#df1839"));
 
-                simplePagerTitleView.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
+                simplePagerTitleView.setOnClickListener((V)->{
+                    itemFragment.setIndex(mtitles.get(i).getFind_id());
+                    discoverVp.setCurrentItem(i,false);
 
-                        itemFragment.setIndex(mtitles.get(i).getFind_id());
-                        discoverVp.setCurrentItem(i,false);
+              });
 
-
-                    }
-                });
                 return simplePagerTitleView;
             }
 
@@ -152,7 +147,6 @@ public class DiscoverFragment extends BaseMvpFragment<DiscoverPresentImpl> imple
 
     @Override
     public void setData(List<DiscoverTitleBean> mtitles) {
-        System.out.println("发现"+mtitles.size());
 
         initTitle(mtitles);
         initdatas(mtitles);

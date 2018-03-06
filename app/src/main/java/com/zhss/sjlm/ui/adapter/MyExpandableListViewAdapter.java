@@ -78,7 +78,6 @@ public class MyExpandableListViewAdapter extends BaseExpandableListAdapter {
         Glide.with(mContext)
                 .load(dataList.get(groupPosition).getClass_image())
                 .into(ivGroup);
-        System.out.println("图片地址"+dataList.get(groupPosition).getClass_image());
         TextView tvGroup = (TextView) convertView.findViewById(R.id.tv_group);
         // 如果是展开状态，就显示展开的箭头，否则，显示折叠的箭头
         if (isExpanded) {
@@ -106,7 +105,6 @@ public class MyExpandableListViewAdapter extends BaseExpandableListAdapter {
             MyGridViewAdapter gridViewAdapter = new MyGridViewAdapter(mContext, msgBean);
             gridView.setAdapter(gridViewAdapter);
         }
-        //  gridView.setAdapter(gridViewAdapter);
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -129,6 +127,6 @@ public class MyExpandableListViewAdapter extends BaseExpandableListAdapter {
     public void setData(List<CategreyBean> dataList) {
 
         this.dataList = dataList;
-        System.out.println(dataList.size()+"=======================");
+
     }
 }

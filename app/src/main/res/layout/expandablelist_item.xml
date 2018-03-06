@@ -5,7 +5,7 @@
     android:layout_marginTop="10dp"
     android:orientation="vertical">
 
-    <com.zhss.zhss_sjlm.tools.MyGridView
+    <com.zhss.sjlm.tools.MyGridView
         android:id="@+id/gridview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -14,7 +14,7 @@
 
         android:numColumns="4">
 
-    </com.zhss.zhss_sjlm.tools.MyGridView>
+    </com.zhss.sjlm.tools.MyGridView>
 
     <View
         android:layout_width="match_parent"

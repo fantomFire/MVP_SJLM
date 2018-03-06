@@ -323,7 +323,7 @@
                 android:layout_marginBottom="17dp"
                 android:layout_marginLeft="11dp"
                 android:layout_marginTop="17dp"
-                android:text="美食之旅"
+                android:text="哈哈哈哈"
                 android:textColor="#f5511e"
                 android:textSize="18sp" />
 
@@ -336,6 +336,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="11dp"
+                    android:layout_marginBottom="7dp"
                     android:layout_marginRight="11dp" />
             </RelativeLayout>
 
@@ -356,7 +357,6 @@
                 android:layout_marginBottom="17dp"
                 android:layout_marginLeft="11dp"
                 android:layout_marginTop="17dp"
-                android:text="宜居易尚"
                 android:textColor="#f5511e"
                 android:textSize="18sp" />
 

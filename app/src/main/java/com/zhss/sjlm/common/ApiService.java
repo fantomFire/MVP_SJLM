@@ -26,7 +26,7 @@ public interface ApiService {
 
     //首页数据
     @GET("Homepage/home")
-    Observable<HomeDataBean> getHomeData();
+    Observable<BaseResult<HomeDataBean.DataBean>> getHomeData();
 
     //分类
     @GET("classify/classify")

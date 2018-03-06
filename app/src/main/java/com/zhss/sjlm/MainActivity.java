@@ -69,7 +69,6 @@ public class MainActivity extends FragmentActivity {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-       // requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(getLayoutId());
         StatusBarUtils.setColor(this, getResources().getColor(R.color.statusBarColor));
         bind = ButterKnife.bind(this);
@@ -164,7 +163,6 @@ public class MainActivity extends FragmentActivity {
 
                     @Override
                     public void onSelected(int index, int totalCount) {
-                        System.out.println("currentindex" + index);
                         titleText.setTextColor(Color.parseColor("#f5a11e"));
                         titleImg.setImageResource(mImg2.get(index));
                     }

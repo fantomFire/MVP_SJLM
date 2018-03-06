@@ -50,7 +50,6 @@ public abstract class BaseMvpFragment <P  extends BasePresentipl> extends Fragme
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         mRootView = inflater.inflate(getLayoutId(),container,false);
-        isPrepared=true;
         mUnbinder = ButterKnife.bind(this, mRootView);
         return mRootView;
     }
@@ -65,19 +64,17 @@ public abstract class BaseMvpFragment <P  extends BasePresentipl> extends Fragme
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         mPresenter = createPresenter();
+        isPrepared=true;
+
         mApplication = (MyApplication) mActivity.getApplication();
         initView();
-        initdis();
+        initData();
 
-    }
-
-    public void initdis() {
-        
     }
 
     protected abstract void initView();
 
-    @Override
+ /*   @Override
     public void setUserVisibleHint(boolean isVisibleToUser) {
         super.setUserVisibleHint(isVisibleToUser);
         if (!isPrepared) {
@@ -85,14 +82,13 @@ public abstract class BaseMvpFragment <P  extends BasePresentipl> extends Fragme
         }
         if(getUserVisibleHint()){
             mIsVisible = true;
-            System.out.println("33333333");
             initData();
 
         } else {//fragment不可见
             mIsVisible = false;
         }
     }
-
+*/
 
     protected abstract void initData();
 
@@ -123,7 +119,6 @@ public abstract class BaseMvpFragment <P  extends BasePresentipl> extends Fragme
 
     @Override
     public void showErrorMsg(String msg) {
-        System.out.println("----------------"+msg);
         Toast.makeText(mActivity, msg, Toast.LENGTH_SHORT).show();
 
     }

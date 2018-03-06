@@ -1,5 +1,6 @@
 package com.zhss.sjlm.ui.fragment;
 
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -12,13 +13,16 @@ import com.youth.banner.BannerConfig;
 import com.zhss.sjlm.R;
 import com.zhss.sjlm.base.BaseMvpFragment;
 import com.zhss.sjlm.bean.FoodBean;
-import com.zhss.sjlm.bean.LoginBean;
+import com.zhss.sjlm.bean.HomeDataBean;
 import com.zhss.sjlm.present.HomePresentImpl;
-import com.zhss.sjlm.tools.CommonLinearLayoutManager;
 import com.zhss.sjlm.tools.GlideImageLoader;
+import com.zhss.sjlm.ui.adapter.FoodAdapter;
+import com.zhss.sjlm.ui.adapter.SsAdapter;
+import com.zhss.sjlm.ui.adapter.YijuFoodAdapter;
 import com.zhss.sjlm.ui.contact.HomeContact;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.Unbinder;
@@ -27,7 +31,7 @@ import butterknife.Unbinder;
  * Created by win7-64 on 2018/1/23.
  */
 
-public class HomeFragment extends BaseMvpFragment<HomePresentImpl>implements HomeContact.view {
+public class HomeFragment extends BaseMvpFragment<HomePresentImpl> implements HomeContact.view {
     @BindView(R.id.iv_dingwei)
     ImageView ivDingwei;
     @BindView(R.id.tv_address)
@@ -91,65 +95,24 @@ public class HomeFragment extends BaseMvpFragment<HomePresentImpl>implements Hom
     private ArrayList<String> imgs = new ArrayList<>();
 
     private ArrayList<FoodBean> foodBeans;
+    private FoodAdapter foodAdapter;
+    private YijuFoodAdapter yijuFoodAdapter;
+    private SsAdapter ssAdapter;
+
     @Override
     protected void initView() {
-  /*      *//* getStateView().setRootView(flContent);
-         getStateView().showLoading();*//*
-        mStateView = StateView.inject(flContent);
-        mStateView.showLoading();*/
-
-        CommonLinearLayoutManager linearLayoutManager = new CommonLinearLayoutManager(getActivity());
-        linearLayoutManager.setScrollEnable(false);
-        recMeishi.setLayoutManager(linearLayoutManager);
-      /*  foodAdapter = new FoodAdapter(getActivity(), foodBeans);
+        //美食
+        recMeishi.setLayoutManager(new LinearLayoutManager(mActivity));
+        foodAdapter = new FoodAdapter();
         recMeishi.setAdapter(foodAdapter);
-*/
-
-        addData();
-        //设置banner
-        setBanner();
-        //设置美食
-
-        //设置宜居
-        setYiju();
-    }
-
-    private void setBanner() {
-        imgs.clear();
-        imgs.add("http://sssm.test.zhonghuass.cn/public/image/home/4.jpg");
-        imgs.add("http://sssm.test.zhonghuass.cn/public/image/home/1.jpg");
-        imgs.add("http://sssm.test.zhonghuass.cn/public/image/home/4.jpg");
-        imgs.add("http://sssm.test.zhonghuass.cn/public/image/home/1.jpg");
-
-        banner.setBannerStyle(BannerConfig.CIRCLE_INDICATOR);
-        banner.setImageLoader(new GlideImageLoader());
-        banner.setImages(imgs);
-        banner.isAutoPlay(true);
-        banner.setDelayTime(2000);
-        banner.setIndicatorGravity(BannerConfig.CENTER);
-        banner.start();
-
-    }
-
-    private void setYiju() {
-     /*   CommonLinearLayoutManager linearLayoutManager = new CommonLinearLayoutManager(getActivity());
-        linearLayoutManager.setScrollEnable(false);
-        recYiju.setLayoutManager(linearLayoutManager);
-
-        recYiju.setAdapter(new YijuFoodAdapter(getActivity(), foodBeans));*/
-    }
-    private void addData() {
-        foodBeans = new ArrayList<>();
-        FoodBean foodBean;
-        for (int i = 0; i < 5; i++) {
-            foodBean = new FoodBean();
-
-            foodBean.address = "大雁塔";
-            foodBean.name = "天上人间" + i;
-
-            foodBean.img = R.mipmap.meizi1;
-            foodBeans.add(foodBean);
-        }
+        //宜居
+        yijuFoodAdapter = new YijuFoodAdapter();
+        recYiju.setLayoutManager(new LinearLayoutManager(mActivity));
+        recYiju.setAdapter(yijuFoodAdapter);
+        //盛世之美
+        recSszm.setLayoutManager(new LinearLayoutManager(mActivity));
+        ssAdapter = new SsAdapter();
+        recSszm.setAdapter(ssAdapter);
     }
 
     @Override
@@ -161,15 +124,46 @@ public class HomeFragment extends BaseMvpFragment<HomePresentImpl>implements Hom
     public HomePresentImpl createPresenter() {
         return new HomePresentImpl(this);
     }
+
     @Override
     protected void initData() {
-        System.out.println("当前P"+mPresenter);
-    mPresenter.getData();
+        mPresenter.getData();
     }
 
+    //设置banner
+    @Override
+    public void setBanner(List<HomeDataBean.DataBean.BannerBean> bannerData) {
+        imgs.clear();
+        for (int i = 0; i < bannerData.size(); i++) {
+            imgs.add(bannerData.get(i).getBa_url());
+        }
+        banner.setBannerStyle(BannerConfig.CIRCLE_INDICATOR);
+        banner.setImageLoader(new GlideImageLoader());
+        banner.setImages(imgs);
+        banner.isAutoPlay(true);
+        banner.setDelayTime(2000);
+        banner.setIndicatorGravity(BannerConfig.CENTER);
+        banner.start();
+    }
 
     @Override
-    public void setData(LoginBean dataList) {
+    public void setFood(HomeDataBean.DataBean.Position1Bean foodData) {
+        List<HomeDataBean.DataBean.Position1Bean.ContentBean> content = foodData.getContent();
+        tvMeishi.setText(foodData.getTitle());
+        foodAdapter.addData(content);
+        foodAdapter.notifyDataSetChanged();
+    }
 
+    @Override
+    public void setYiju(HomeDataBean.DataBean.Position2Bean yijuData) {
+        tvJiaju.setText(yijuData.getTitle());
+        yijuFoodAdapter.addData(yijuData.getContentX());
+
+    }
+
+    @Override
+    public void setSS(HomeDataBean.DataBean.Position3Bean ssData) {
+        tvSs.setText(ssData.getTitle());
+        ssAdapter.addData(ssData.getContentXX());
     }
 }

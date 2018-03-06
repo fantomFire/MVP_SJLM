@@ -32,8 +32,6 @@ public class ItemFragment extends BaseMvpFragment<ItemFragmentPrenImpl> implemen
 
     @Override
     protected void initView() {
-      //  mStateView = StateView.inject(flContent);
-      //  mStateView.showLoading();
         recDiscover.setLayoutManager(new LinearLayoutManager(mActivity));
         discoverAdapter = new DiscoverAdapter();
         recDiscover.setAdapter(discoverAdapter);
@@ -45,14 +43,10 @@ public class ItemFragment extends BaseMvpFragment<ItemFragmentPrenImpl> implemen
         return R.layout.fragment_item;
     }
 
-    @Override
-    public void initdis() {
-        mPresenter.getData(currentId);
-    }
 
     @Override
     protected void initData() {
-
+        mPresenter.getData(currentId);
 
     }
 
@@ -61,28 +55,6 @@ public class ItemFragment extends BaseMvpFragment<ItemFragmentPrenImpl> implemen
         return new ItemFragmentPrenImpl(this);
     }
 
-   /* @Override
-    public DiscocerItemPresent createPresenter() {
-        return new DiscocerItemPresent();
-    }
-
-    @Override
-    public void loadSuccess(Object data) {
-        DiscoverBean datas = (DiscoverBean)data;
-        if(datas.getStatus().equals("200")){
-          //  mStateView.showContent();
-            dataList = datas.getMsg();
-            System.out.println("数据"+datas.toString());
-            discoverAdapter.setData(dataList);
-            discoverAdapter.notifyDataSetChanged();
-        }
-    }
-
-    @Override
-    public void loadFail(Object data) {
-        Toast.makeText(mContext, data.toString(), Toast.LENGTH_SHORT).show();
-    }
-*/
 
 
     public void setIndex(String find_id) {
@@ -102,10 +74,5 @@ public class ItemFragment extends BaseMvpFragment<ItemFragmentPrenImpl> implemen
             }
         }
       discoverAdapter.addData(discoverBeans);
-       // discoverAdapter.notifyDataSetChanged();
-
-
-
-
     }
 }

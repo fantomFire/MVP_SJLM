@@ -44,7 +44,6 @@ public class ClassifyFragment extends BaseMvpFragment<ClassfyPresentImpl> implem
 
     @Override
     protected void initData() {
-        System.out.println("开始请求数据");
         mPresenter.getData();
     }
 
@@ -55,10 +54,7 @@ public class ClassifyFragment extends BaseMvpFragment<ClassfyPresentImpl> implem
 
     @Override
     public void setData(List<CategreyBean> data) {
-        System.out.println(data.size());
-
         adapter.setData(data);
-        adapter.notifyDataSetChanged();
     }
 }
 
