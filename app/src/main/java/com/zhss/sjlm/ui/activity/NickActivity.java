@@ -1,5 +1,7 @@
 package com.zhss.sjlm.ui.activity;
 
+import android.os.Bundle;
+
 import com.zhss.sjlm.R;
 import com.zhss.sjlm.base.BaseActivity;
 
@@ -8,9 +10,12 @@ import com.zhss.sjlm.base.BaseActivity;
  */
 
  public class NickActivity  extends BaseActivity{
+
+
     @Override
-    public void setContentLayout(int resid) {
-        super.setContentLayout(R.layout.activity_nicheng);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentLayout(R.layout.activity_nicheng);
     }
 
     @Override
