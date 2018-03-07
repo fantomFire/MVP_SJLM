@@ -6,6 +6,7 @@ import com.zhss.sjlm.bean.DiscoverBean;
 import com.zhss.sjlm.bean.DiscoverTitleBean;
 import com.zhss.sjlm.bean.HomeDataBean;
 import com.zhss.sjlm.bean.LoginBean;
+import com.zhss.sjlm.bean.MineInfoBean;
 
 import java.util.List;
 
@@ -38,6 +39,9 @@ public interface ApiService {
     //栏目信息
     @GET("Find/goodsdex")
     Observable<BaseResult<List<DiscoverBean>>> getItemData(@Query("find") int find);
+    //个人中心
+    @GET("userinfo/index")
+    Observable<BaseResult<MineInfoBean.DataBean> >getUserInfo(@Query("uid")String uid);
 
  /*
     //获取验证码
@@ -53,9 +57,7 @@ public interface ApiService {
     Observable<RegistBean> modifyNewpass(@Query("mobile") String mPhone, @Query("code") String mCode,
                                          @Query("password") String mPass, @Query("type") String type);
 
-    //个人中心
-    @GET("userinfo/index")
-    Observable<MineInfoBean> getUserInfo(@Query("uid")String uid);
+
 
 
    */

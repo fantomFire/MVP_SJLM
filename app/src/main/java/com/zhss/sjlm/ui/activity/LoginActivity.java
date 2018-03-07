@@ -12,6 +12,7 @@ import com.zhss.sjlm.R;
 import com.zhss.sjlm.base.BaseMvpActivity;
 import com.zhss.sjlm.bean.LoginBean;
 import com.zhss.sjlm.present.LongPresent;
+import com.zhss.sjlm.tools.PrefUtils;
 import com.zhss.sjlm.ui.contact.LoginContact;
 
 import butterknife.BindView;
@@ -45,7 +46,7 @@ public class LoginActivity extends BaseMvpActivity<LongPresent> implements Login
 
     @Override
     protected void initData() {
-     startActivity(MainActivity.class);
+    // startActivity(MainActivity.class);
     }
 
     @Override
@@ -75,8 +76,13 @@ public class LoginActivity extends BaseMvpActivity<LongPresent> implements Login
 
     @Override
     public void setData(LoginBean dataList) {
+        String user_id = dataList.getId();
+        String mobile = dataList.getMobile();
+        if(user_id!=null){
+            PrefUtils.putString(this,"user_id",user_id);
+        }
         Toast.makeText(this, "登陆成功", Toast.LENGTH_SHORT).show();
-        startActivity(MainActivity.class);
+       startActivity(MainActivity.class);
 
     }
 }

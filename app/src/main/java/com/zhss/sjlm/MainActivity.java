@@ -19,6 +19,7 @@ import com.zhss.sjlm.ui.fragment.ClassifyFragment;
 import com.zhss.sjlm.ui.fragment.DiscoverFragment;
 import com.zhss.sjlm.ui.fragment.HomeFragment;
 import com.zhss.sjlm.ui.fragment.MerchantFragment;
+import com.zhss.sjlm.ui.fragment.MineFragment;
 
 import net.lucode.hackware.magicindicator.MagicIndicator;
 import net.lucode.hackware.magicindicator.ViewPagerHelper;
@@ -56,15 +57,13 @@ public class MainActivity extends FragmentActivity {
     private boolean isExit = false;
     private Unbinder bind;
     private HomeFragment homeFragment;
-    private MyPagerAdapter myPagerAdapter;
-    private ClassifyFragment classifyFragment;
      private MerchantFragment merchantFragment;
     private DiscoverFragment discoverFragment;
-      /*
+
        private MineFragment mineFragment;
        private MyPagerAdapter myPagerAdapter;
        private ClassifyFragment classifyFragment;
-   */
+
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -102,11 +101,10 @@ public class MainActivity extends FragmentActivity {
             discoverFragment = new DiscoverFragment();
             mPagers.add(discoverFragment);
         }
-          /*
         if (mineFragment == null) {
             mineFragment = new MineFragment();
             mPagers.add(mineFragment);
-        }*/
+        }
         myPagerAdapter = new MyPagerAdapter(getSupportFragmentManager(), mPagers);
         mViewPager.setAdapter(myPagerAdapter);
         mViewPager.requestDisallowInterceptTouchEvent(true);
