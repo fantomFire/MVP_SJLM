@@ -101,8 +101,7 @@ public class StatusActivity  extends BaseActivity {
     }
 
     @Override
-    protected int getLayoutId() {
-        return R.layout.activity_test_status;
+    public void setContentLayout(int resid) {
+        super.setContentLayout(R.layout.activity_test_status);
     }
-
 }

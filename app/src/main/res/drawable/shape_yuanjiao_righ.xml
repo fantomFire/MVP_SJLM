@@ -2,6 +2,6 @@
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
     android:shape="rectangle">
     <!-- 填充的颜色：这里设置背景透明 -->
-    <solid android:color="@color/f5511e" />
+    <solid android:color="@color/statusBarColor" />
     <corners android:bottomRightRadius="10dp"/>
 </shape>

@@ -10,7 +10,7 @@
     <item android:state_checked="true">
         <shape>
             <!-- 填充白色-->
-            <solid android:color="@color/f5511e" />
+            <solid android:color="@color/statusBarColor" />
             <corners android:radius="3dp"/>
         </shape>
     </item>

@@ -13,6 +13,7 @@ import com.zhss.sjlm.bean.MineInfoBean;
 import com.zhss.sjlm.present.MinePresentImpl;
 import com.zhss.sjlm.tools.GlideManager;
 import com.zhss.sjlm.tools.PrefUtils;
+import com.zhss.sjlm.ui.activity.PersonData;
 import com.zhss.sjlm.ui.contact.MainContact;
 
 import butterknife.BindView;
@@ -57,6 +58,9 @@ public class MineFragment extends BaseMvpFragment<MinePresentImpl> implements Ma
     @BindView(R.id.ll_version)
     LinearLayout llVersion;
     Unbinder unbinder;
+    @BindView(R.id.ll_person)
+    LinearLayout llPerson;
+    Unbinder unbinder1;
     private String user_id;
 
     @Override
@@ -87,12 +91,13 @@ public class MineFragment extends BaseMvpFragment<MinePresentImpl> implements Ma
 
     @Override
     public void setData(MineInfoBean.DataBean dataList) {
-        GlideManager.loadImage(mActivity,dataList.getAvatar(),R.mipmap.meizi1,circleImage);
+        GlideManager.loadImage(mActivity, dataList.getAvatar(), R.mipmap.meizi1, circleImage);
         tvName.setText(dataList.getNickname());
         tvDes.setText(dataList.getIntroduction());
     }
 
-    @OnClick({R.id.iv_shezhi, R.id.img_sixin, R.id.my_wallet, R.id.my_integral, R.id.my_attention, R.id.ll_wddd, R.id.ll_agent, R.id.ll_comment, R.id.ll_relation, R.id.ll_version})
+    @OnClick({R.id.iv_shezhi, R.id.img_sixin, R.id.my_wallet, R.id.my_integral, R.id.my_attention,R.id.ll_person,
+            R.id.ll_wddd, R.id.ll_agent, R.id.ll_comment, R.id.ll_relation, R.id.ll_version})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.iv_shezhi:
@@ -115,6 +120,15 @@ public class MineFragment extends BaseMvpFragment<MinePresentImpl> implements Ma
                 break;
             case R.id.ll_version:
                 break;
+            case R.id.ll_person:
+                startActivity(PersonData.class);
+                break;
         }
+    }
+
+
+
+    @OnClick()
+    public void onViewClicked() {
     }
 }

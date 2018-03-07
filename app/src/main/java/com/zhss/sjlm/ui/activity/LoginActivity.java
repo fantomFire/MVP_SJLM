@@ -40,13 +40,18 @@ public class LoginActivity extends BaseMvpActivity<LongPresent> implements Login
     LinearLayout llContent;
 
     @Override
+    protected void initView() {
+
+    }
+
+    @Override
     protected int getLayoutId() {
         return R.layout.activity_login;
     }
 
     @Override
     protected void initData() {
-    // startActivity(MainActivity.class);
+    startActivity(MainActivity.class);
     }
 
     @Override
@@ -60,8 +65,8 @@ public class LoginActivity extends BaseMvpActivity<LongPresent> implements Login
         switch (view.getId()) {
             case R.id.btn_login:
 
-                mPresenter.getData(edtPhone.getText().toString(), edtPass.getText().toString());
-                // startActivity(new Intent(this, MainActivity.class));
+              //  mPresenter.getData(edtPhone.getText().toString(), edtPass.getText().toString());
+                //startActivity( MainActivity.class);
                 break;
             case R.id.tv_register:
                 //   startActivity(new Intent(this, RegisterActivity.class));

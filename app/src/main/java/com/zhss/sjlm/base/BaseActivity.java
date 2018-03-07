@@ -1,26 +1,45 @@
 package com.zhss.sjlm.base;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import android.view.LayoutInflater;
+import android.view.View;
 import android.view.Window;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.zhss.sjlm.MyApplication;
 import com.zhss.sjlm.R;
 import com.zhss.sjlm.tools.StatusBarUtils;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import butterknife.Unbinder;
 import io.reactivex.disposables.CompositeDisposable;
-import io.reactivex.disposables.Disposable;
 
 /**
  * Created by win7-64 on 2018/2/27.
  */
 
 
-public abstract class BaseActivity extends AppCompatActivity {
+public abstract class BaseActivity extends Activity {
+    @BindView(R.id.iv_left)
+    LinearLayout ivLeft;
+    @BindView(R.id.tv_center)
+    public TextView tvCenter;
+    @BindView(R.id.tv_right)
+    public TextView tvRight;
+    @BindView(R.id.l_share)
+    LinearLayout lShare;
+    @BindView(R.id.rl_base_title)
+    public RelativeLayout rlBaseTitle;
+    @BindView(R.id.fl_base_activity)
+    FrameLayout flBaseActivity;
     private Unbinder mUnbinder;
 
 
@@ -28,13 +47,11 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     protected CompositeDisposable disposables;
 
-
     @Override
-    protected void onCreate( Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-
-        setContentView(getLayoutId());
+        setContentView(R.layout.base_activity);
         StatusBarUtils.setColor(this, getResources().getColor(R.color.statusBarColor));
         initStatusLayout();
 
@@ -43,6 +60,13 @@ public abstract class BaseActivity extends AppCompatActivity {
         this.mApplication = (MyApplication) getApplication();
         initView();
         initData();
+    }
+
+    public void setContentLayout(int resid) {
+
+        LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View contentView = inflater.inflate(resid, null);
+        flBaseActivity.addView(contentView);
     }
 
     protected abstract void initData();
@@ -67,9 +91,6 @@ public abstract class BaseActivity extends AppCompatActivity {
      *
      * @return activity对应的  布局id
      */
-    protected abstract int getLayoutId();
-
-
     public void startActivity(Class<? extends Activity> clazz) {
         startActivity(new Intent(this, clazz));
     }
@@ -87,19 +108,8 @@ public abstract class BaseActivity extends AppCompatActivity {
             mUnbinder = null;
         }
     }
-
-    public void addRx(Disposable disposable) {
-        if (disposables == null) {
-            disposables = new CompositeDisposable();
-        }
-        disposables.add(disposable);
-    }
-
-    public void removeRx(Disposable disposable) {
-        if (disposables == null) {
-            return;
-        }
-        disposables.remove(disposable);
-
+    @OnClick(R.id.iv_left)
+    public void onViewClicked() {
+        finish();
     }
 }

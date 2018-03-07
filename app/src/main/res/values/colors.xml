@@ -38,9 +38,8 @@
     <color name="d8a5ff">#d8a5ff</color>
     <color name="d562fe">#d562fe</color>
     <color name="colorBlack">#000000</color>
-    <color name="f5511e">#f5511e</color>
     <color name="camera_pop_normal">#5DB8FE</color>
-    <color name="colorf55">#f5511e</color>
+
     <color name="color000">#000000</color>
     <color name="color999">#999999</color>
     <color name="colorEDED">#EDEDED</color>
@@ -56,4 +55,5 @@
     <color name="f2f2f2">#f2f2f2</color>
     <color name="f4f4f4">#f4f4f4</color>
     <color name="eeeeee">#eeeeee</color>
+    <color name="e2e2">#e2e2e2</color>
 </resources>
