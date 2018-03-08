@@ -77,6 +77,7 @@ public class LoginActivity extends BaseMvpActivity<LongPresent> implements Login
 
                 break;
         }
+
     }
 
     @Override

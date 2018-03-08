@@ -42,6 +42,8 @@ public interface ApiService {
     //个人中心
     @GET("userinfo/index")
     Observable<BaseResult<MineInfoBean.DataBean> >getUserInfo(@Query("uid")String uid);
+     @POST("userinfo/update")
+    Observable<BaseResult<Void> >upDataNicheng(@Query("uid") String uid ,@Query("nickname")String nicheng);
 
  /*
     //获取验证码

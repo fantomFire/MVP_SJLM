@@ -15,13 +15,8 @@ public class StatusActivity  extends BaseActivity {
 
     private StatusLayoutManager mStatusLayoutManager;
 
-    @Override
-    protected void initData() {
 
-    }
 
-    //测试使用多状态布局
-    @Override
     public void initStatusLayout() {
 
         mStatusLayoutManager = StatusLayoutManager.newBuilder(this)
@@ -66,6 +61,10 @@ public class StatusActivity  extends BaseActivity {
     }
 
     @Override
+    protected void initData() {
+
+    }
+
     protected void initView() {
 
         mStatusLayoutManager.showLoading();
@@ -101,7 +100,8 @@ public class StatusActivity  extends BaseActivity {
     }
 
     @Override
-    public void setContentLayout(int resid) {
-        super.setContentLayout(R.layout.activity_test_status);
+    protected int getlayoutId() {
+        return R.layout.activity_test_status;
+
     }
 }

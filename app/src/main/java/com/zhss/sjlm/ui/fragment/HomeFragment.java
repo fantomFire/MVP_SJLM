@@ -12,7 +12,6 @@ import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
 import com.zhss.sjlm.R;
 import com.zhss.sjlm.base.BaseMvpFragment;
-import com.zhss.sjlm.bean.FoodBean;
 import com.zhss.sjlm.bean.HomeDataBean;
 import com.zhss.sjlm.present.HomePresentImpl;
 import com.zhss.sjlm.tools.GlideImageLoader;
@@ -94,7 +93,6 @@ public class HomeFragment extends BaseMvpFragment<HomePresentImpl> implements Ho
     FrameLayout flContent;
     private ArrayList<String> imgs = new ArrayList<>();
 
-    private ArrayList<FoodBean> foodBeans;
     private FoodAdapter foodAdapter;
     private YijuFoodAdapter yijuFoodAdapter;
     private SsAdapter ssAdapter;
