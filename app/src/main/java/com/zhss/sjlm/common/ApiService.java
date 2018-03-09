@@ -36,14 +36,23 @@ public interface ApiService {
     //发现栏目
     @GET("Find/findindex")
     Observable<BaseResult<List<DiscoverTitleBean>>> getDiscoverTitle();
+
     //栏目信息
     @GET("Find/goodsdex")
     Observable<BaseResult<List<DiscoverBean>>> getItemData(@Query("find") int find);
+
     //个人中心
     @GET("userinfo/index")
-    Observable<BaseResult<MineInfoBean.DataBean> >getUserInfo(@Query("uid")String uid);
-     @POST("userinfo/update")
-    Observable<BaseResult<Void> >upDataNicheng(@Query("uid") String uid ,@Query("nickname")String nicheng);
+    Observable<BaseResult<MineInfoBean.DataBean>> getUserInfo(@Query("uid") String uid);
+    //昵称
+    @POST("userinfo/update")
+    Observable<BaseResult<Void>> upDataNicheng(@Query("uid") String uid, @Query("nickname") String nicheng);
+    //真实姓名
+    @POST("userinfo/update")
+    Observable<BaseResult<Void>> upDataTruename(@Query("uid") String user_id, @Query("truename") String trueName);
+    //个人简介
+    @POST("userinfo/update")
+    Observable<BaseResult<Void>> upDataIntroduction(@Query("uid") String user_id, @Query("introduction") String trueName);
 
  /*
     //获取验证码

@@ -3,6 +3,7 @@ package com.zhss.sjlm.ui.activity;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -16,14 +17,11 @@ import butterknife.BindView;
 import butterknife.OnClick;
 
 /**
- * Created by win7-64 on 2018/3/7.
+ * Created by win7-64 on 2018/3/8.
  */
 
-public class NickActivity extends BaseActivity {
-    @BindView(R.id.et_name)
-    EditText etName;
-    @BindView(R.id.tv_up)
-    TextView tvUp;
+public class PersonDesActivity extends BaseActivity {
+
     @BindView(R.id.iv_left)
     LinearLayout ivLeft;
     @BindView(R.id.tv_center)
@@ -32,6 +30,12 @@ public class NickActivity extends BaseActivity {
     TextView tvRight;
     @BindView(R.id.l_share)
     LinearLayout lShare;
+    @BindView(R.id.rl_base_title)
+    RelativeLayout rlBaseTitle;
+    @BindView(R.id.et_name)
+    EditText etName;
+    @BindView(R.id.tv_up)
+    TextView tvUp;
     private String user_id;
 
     @Override
@@ -42,13 +46,15 @@ public class NickActivity extends BaseActivity {
     @Override
     protected void initView() {
         user_id = PrefUtils.getString(mActivity, "user_id", "");
-        tvCenter.setText("修改昵称");
+        tvCenter.setText("个人简介");
     }
 
     @Override
     protected int getlayoutId() {
-        return R.layout.activity_nicheng;
+        return R.layout.activity_des;
     }
+
+
 
     @OnClick({R.id.iv_left, R.id.tv_up})
     public void onViewClicked(View view) {
@@ -57,27 +63,24 @@ public class NickActivity extends BaseActivity {
                 finish();
                 break;
             case R.id.tv_up:
-                String nicheng = etName.getText().toString().trim();
-                if (nicheng == null || nicheng.equals("")) {
-                    Toast.makeText(mApplication, "昵称不能为空", Toast.LENGTH_SHORT).show();
+                String trueName = etName.getText().toString().trim();
+                if (trueName == null || trueName.equals("")) {
+                    Toast.makeText(mApplication, "姓名不能为空", Toast.LENGTH_SHORT).show();
                     return;
                 } else {
-                    toUpload(nicheng);
+                    toUpload(trueName);
                 }
                 break;
         }
     }
-
-    private void toUpload(String nicheng) {
-        apiService.upDataNicheng(user_id, nicheng)
+    private void toUpload(String trueName) {
+        apiService.upDataIntroduction(user_id, trueName)
                 .compose(RxSchedulerHepler.io_main())
                 .subscribe(new BaseObserver<Void>(mActivity) {
                     @Override
                     public void onSuccess(Void aVoid) {
                         Toast.makeText(mActivity, "修改成功", Toast.LENGTH_SHORT).show();
-
                     }
                 });
-
     }
 }

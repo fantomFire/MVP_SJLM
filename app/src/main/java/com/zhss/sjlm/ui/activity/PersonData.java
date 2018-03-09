@@ -114,8 +114,10 @@ public class PersonData extends BaseMvpActivity<PersonPresentImpl> implements Pe
                 startActivity(NickActivity.class);
                 break;
             case R.id.ll_name:
+                startActivity(TruenameActivity.class);
                 break;
             case R.id.ll_introduce:
+                startActivity(PersonDesActivity.class);
                 break;
             case R.id.ll_sex:
                 break;
@@ -128,5 +130,11 @@ public class PersonData extends BaseMvpActivity<PersonPresentImpl> implements Pe
             case R.id.ll_autonym:
                 break;
         }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mPresenter.getData(user_id);
     }
 }
