@@ -1,5 +1,8 @@
 package com.zhss.sjlm.ui.activity;
 
+import android.Manifest;
+import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -12,9 +15,15 @@ import com.zhss.sjlm.tools.GlideManager;
 import com.zhss.sjlm.tools.PrefUtils;
 import com.zhss.sjlm.ui.contact.PersonContact;
 
+import java.util.ArrayList;
+
 import butterknife.BindView;
 import butterknife.OnClick;
 import de.hdodenhof.circleimageview.CircleImageView;
+import kr.co.namee.permissiongen.PermissionFail;
+import kr.co.namee.permissiongen.PermissionGen;
+import kr.co.namee.permissiongen.PermissionSuccess;
+import me.iwf.photopicker.PhotoPicker;
 
 /**
  * Created by win7-64 on 2018/3/7.
@@ -61,6 +70,7 @@ public class PersonData extends BaseMvpActivity<PersonPresentImpl> implements Pe
     @BindView(R.id.ll_autonym)
     LinearLayout llAutonym;
     private String user_id;
+    private String imagePath;
 
     @Override
     public void setData(MineInfoBean.DataBean dataList) {
@@ -109,6 +119,10 @@ public class PersonData extends BaseMvpActivity<PersonPresentImpl> implements Pe
                 finish();
                 break;
             case R.id.ll_avatar:
+                PermissionGen.with(this)
+                        .addRequestCode(200)
+                        .permissions(Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.CAMERA)
+                        .request();
                 break;
             case R.id.ll_nickname:
                 startActivity(NickActivity.class);
@@ -126,6 +140,7 @@ public class PersonData extends BaseMvpActivity<PersonPresentImpl> implements Pe
             case R.id.ll_date:
                 break;
             case R.id.ll_area:
+                startActivity(AddressActivity.class);
                 break;
             case R.id.ll_autonym:
                 break;
@@ -137,4 +152,39 @@ public class PersonData extends BaseMvpActivity<PersonPresentImpl> implements Pe
         super.onResume();
         mPresenter.getData(user_id);
     }
+    @PermissionSuccess(requestCode = 200)
+    public void addImg() {
+        ChoosePhotoType();
+    }
+
+    @PermissionFail(requestCode = 200)
+    public void fail() {
+    }
+
+    private void ChoosePhotoType() {
+        PhotoPicker.builder()
+                .setPhotoCount(1)
+                .setShowCamera(true)
+                .setPreviewEnabled(false)
+                .start(this, PhotoPicker.REQUEST_CODE);
+    }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == RESULT_OK && requestCode == PhotoPicker.REQUEST_CODE) {
+            if (data != null) {
+                ArrayList<String> photos =
+                        data.getStringArrayListExtra(PhotoPicker.KEY_SELECTED_PHOTOS);
+
+                imagePath = photos.get(0);
+
+            }
+
+        }
+    }
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        PermissionGen.onRequestPermissionsResult(this, requestCode, permissions, grantResults);
+    }
+
 }

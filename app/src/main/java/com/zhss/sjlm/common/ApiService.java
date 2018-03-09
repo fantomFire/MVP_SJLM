@@ -44,15 +44,24 @@ public interface ApiService {
     //个人中心
     @GET("userinfo/index")
     Observable<BaseResult<MineInfoBean.DataBean>> getUserInfo(@Query("uid") String uid);
+
     //昵称
     @POST("userinfo/update")
     Observable<BaseResult<Void>> upDataNicheng(@Query("uid") String uid, @Query("nickname") String nicheng);
+
     //真实姓名
     @POST("userinfo/update")
     Observable<BaseResult<Void>> upDataTruename(@Query("uid") String user_id, @Query("truename") String trueName);
+
     //个人简介
     @POST("userinfo/update")
     Observable<BaseResult<Void>> upDataIntroduction(@Query("uid") String user_id, @Query("introduction") String trueName);
+
+    @POST("Address/add")
+    Observable<BaseResult<Void>> upDataAddress(@Query("status") String status, @Query("uid") String uid,
+                                               @Query("true_name") String trueName, @Query("tel_phone") String tel_phone,
+                                               @Query("area_info") String area_info, @Query("address") String address
+    );
 
  /*
     //获取验证码

@@ -23,6 +23,9 @@
         <activity android:name=".ui.activity.NickActivity" />
         <activity android:name=".ui.activity.TruenameActivity" />
         <activity android:name=".ui.activity.PersonDesActivity" />
+        <activity android:name=".ui.activity.AddressActivity" />
+        <activity android:name=".ui.activity.NewAddressActivity" />
+        <activity android:name=".ui.activity.RegistAddressActivity" />
     </application>
 
 </manifest>
