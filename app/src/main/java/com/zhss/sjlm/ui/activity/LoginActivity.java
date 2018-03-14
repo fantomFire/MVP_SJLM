@@ -65,7 +65,7 @@ public class LoginActivity extends BaseMvpActivity<LongPresent> implements Login
         switch (view.getId()) {
             case R.id.btn_login:
 
-              //  mPresenter.getData(edtPhone.getText().toString(), edtPass.getText().toString());
+            mPresenter.getData(edtPhone.getText().toString(), edtPass.getText().toString());
                 //startActivity( MainActivity.class);
                 break;
             case R.id.tv_register:

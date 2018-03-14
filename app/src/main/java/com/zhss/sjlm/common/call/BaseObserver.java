@@ -42,6 +42,7 @@ public abstract class BaseObserver<T>  implements Observer<BaseResult<T>> {
 
     @Override
     public void onNext(BaseResult<T> response) {
+      //  System.out.println("response"+response.toString());
         HttpUiTips.dismissDialog(mContext);
         if(!disposable.isDisposed()){
             disposable.dispose();

@@ -70,7 +70,7 @@ public class PersonData extends BaseMvpActivity<PersonPresentImpl> implements Pe
     @BindView(R.id.ll_autonym)
     LinearLayout llAutonym;
     private String user_id;
-    private String imagePath;
+    private ArrayList<String> imagePath = new ArrayList<>();
 
     @Override
     public void setData(MineInfoBean.DataBean dataList) {
@@ -152,6 +152,7 @@ public class PersonData extends BaseMvpActivity<PersonPresentImpl> implements Pe
         super.onResume();
         mPresenter.getData(user_id);
     }
+
     @PermissionSuccess(requestCode = 200)
     public void addImg() {
         ChoosePhotoType();
@@ -168,6 +169,7 @@ public class PersonData extends BaseMvpActivity<PersonPresentImpl> implements Pe
                 .setPreviewEnabled(false)
                 .start(this, PhotoPicker.REQUEST_CODE);
     }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -175,13 +177,24 @@ public class PersonData extends BaseMvpActivity<PersonPresentImpl> implements Pe
             if (data != null) {
                 ArrayList<String> photos =
                         data.getStringArrayListExtra(PhotoPicker.KEY_SELECTED_PHOTOS);
-
-                imagePath = photos.get(0);
-
+                imagePath.clear();
+                imagePath.add(photos.get(0));
+                if (imagePath != null) {
+                    upData(imagePath);
+                }
             }
 
         }
     }
+        //上传头像
+    private void upData(ArrayList<String> imagePath) {
+        //图像转换
+    //  String imgStr = ImageCompress.GetImageStr(imagePath);
+
+        mPresenter.upDataPhoto(user_id,imagePath);
+
+    }
+
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         PermissionGen.onRequestPermissionsResult(this, requestCode, permissions, grantResults);
