@@ -44,12 +44,4 @@ public class BaseResult<T> {
         this.data = data;
     }
 
-    @Override
-    public String toString() {
-        return "BaseResult{" +
-                "status=" + status +
-                ", info='" + msg + '\'' +
-                ", data=" + data.toString() +
-                '}';
-    }
 }

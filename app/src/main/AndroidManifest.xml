@@ -33,6 +33,7 @@
         <activity
             android:name="me.iwf.photopicker.PhotoPagerActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity android:name=".ui.activity.EditeAddress" />
     </application>
 
 </manifest>

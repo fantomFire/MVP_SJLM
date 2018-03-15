@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/shape_dialog"
+    android:orientation="vertical">
+    <TextView
+        android:id="@+id/txt_tip"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:gravity="center"
+        android:text="确认删除该地址？"
+        android:textColor="@color/text333"
+        android:textSize="16dp" />
+
+    <LinearLayout
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="37dp"
+        android:layout_marginBottom="20dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/txt_dialog_no"
+            android:background="@drawable/shape_yuanjiaokuang_10"
+            android:layout_width="120dp"
+            android:layout_height="33dp"
+            android:gravity="center"
+            android:text="否"
+            android:textColor="@color/text333"
+            android:textSize="18dp" />
+
+        <TextView
+            android:id="@+id/txt_dialog_yes"
+            android:background="@drawable/shape_yuanjiao_10"
+            android:layout_width="120dp"
+            android:layout_height="33dp"
+            android:layout_marginLeft="10dp"
+            android:gravity="center"
+            android:text="是"
+            android:textColor="@color/white"
+            android:textSize="18dp" />
+    </LinearLayout>
+
+</LinearLayout>

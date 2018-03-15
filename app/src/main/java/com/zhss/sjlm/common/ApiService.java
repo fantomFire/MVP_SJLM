@@ -1,5 +1,6 @@
 package com.zhss.sjlm.common;
 
+import com.zhss.sjlm.bean.AddressALLBean;
 import com.zhss.sjlm.bean.BaseResult;
 import com.zhss.sjlm.bean.CategreyBean;
 import com.zhss.sjlm.bean.DiscoverBean;
@@ -68,10 +69,25 @@ public interface ApiService {
                                                @Query("true_name") String trueName, @Query("tel_phone") String tel_phone,
                                                @Query("area_info") String area_info, @Query("address") String address
     );
+
     //上传头像
     @Multipart
     @POST("userinfo/upavatar")
     Observable<BaseResult<Void>> upDataPhoto(@PartMap Map<String, RequestBody> map, @Part List<MultipartBody.Part> partList);
+
+    //收货地址
+    @GET("Address/index")
+    Observable<BaseResult<AddressALLBean.DataBean>> getAddress(@Query("uid") String uid);
+
+    //修改收货地址
+    @POST("Address/add")
+    Observable<BaseResult<Void>> editDataAddress(@Query("status") String status, @Query("address_id") String address_id, @Query("uid") String uid,
+                                                 @Query("true_name") String trueName, @Query("tel_phone") String tel_phone,
+                                                 @Query("area_info") String area_info, @Query("address") String address);
+
+    //删除 默认地址
+    @POST("Address/default")
+    Observable<BaseResult<Void>> delAddress(@Query("status") String status, @Query("uid") String user_id, @Query("address_id") String address_id);
 
  /*
     //获取验证码

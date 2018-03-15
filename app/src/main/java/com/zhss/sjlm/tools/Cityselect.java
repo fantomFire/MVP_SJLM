@@ -51,8 +51,8 @@ public  class Cityselect {
                 city = citySelected[1];
                 //区县（如果设定了两级联动，那么该项返回空）
                 district = citySelected[2];
-                System.out.println("province"+province);
-                txtAddress.setText(province+city);
+
+                txtAddress.setText(province+city+district);
             }
 
             @Override
