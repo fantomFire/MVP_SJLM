@@ -1,6 +1,7 @@
 package com.zhss.sjlm.ui.fragment;
 
 
+import android.content.Intent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -13,6 +14,7 @@ import com.zhss.sjlm.bean.MineInfoBean;
 import com.zhss.sjlm.present.MinePresentImpl;
 import com.zhss.sjlm.tools.GlideManager;
 import com.zhss.sjlm.tools.PrefUtils;
+import com.zhss.sjlm.ui.activity.MyWalletActivity;
 import com.zhss.sjlm.ui.activity.PersonData;
 import com.zhss.sjlm.ui.contact.MainContact;
 
@@ -96,7 +98,7 @@ public class MineFragment extends BaseMvpFragment<MinePresentImpl> implements Ma
         tvDes.setText(dataList.getIntroduction());
     }
 
-    @OnClick({R.id.iv_shezhi, R.id.img_sixin, R.id.my_wallet, R.id.my_integral, R.id.my_attention,R.id.ll_person,
+    @OnClick({R.id.iv_shezhi, R.id.img_sixin, R.id.my_wallet, R.id.my_integral, R.id.my_attention, R.id.ll_person,
             R.id.ll_wddd, R.id.ll_agent, R.id.ll_comment, R.id.ll_relation, R.id.ll_version})
     public void onViewClicked(View view) {
         switch (view.getId()) {
@@ -105,6 +107,7 @@ public class MineFragment extends BaseMvpFragment<MinePresentImpl> implements Ma
             case R.id.img_sixin:
                 break;
             case R.id.my_wallet:
+                startActivity(new Intent(getContext(), MyWalletActivity.class));
                 break;
             case R.id.my_integral:
                 break;
@@ -125,7 +128,6 @@ public class MineFragment extends BaseMvpFragment<MinePresentImpl> implements Ma
                 break;
         }
     }
-
 
 
     @OnClick()

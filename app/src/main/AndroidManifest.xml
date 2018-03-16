@@ -26,6 +26,7 @@
         <activity android:name=".ui.activity.AddressActivity" />
         <activity android:name=".ui.activity.NewAddressActivity" />
         <activity android:name=".ui.activity.RegistAddressActivity" />
+        <activity android:name=".ui.activity.MyWalletActivity"/>
         <activity
             android:name="me.iwf.photopicker.PhotoPickerActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
