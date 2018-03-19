@@ -42,7 +42,8 @@ public class WithDrawAativity extends BaseActivity {
 
         for (int i = 0; i < 4; i++) {
             user = new User();
-            user.setName("银行卡信息" + i);
+            user.setBankName("银行卡信息" + i);
+            user.setBankCard("尾号"+i+"储蓄卡" );
             list.add(user);
         }
         withDrawAdapter.addData(list);
@@ -51,7 +52,8 @@ public class WithDrawAativity extends BaseActivity {
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
                 Toast.makeText(mActivity, "posiont" + position, Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(mActivity, WithDrawInfoAativity.class);
-                intent.putExtra("position", list.get(position).getName());
+                intent.putExtra("position", list.get(position).getBankName());
+                intent.putExtra("position", list.get(position).getBankCard());
                 startActivity(intent);
             }
         });

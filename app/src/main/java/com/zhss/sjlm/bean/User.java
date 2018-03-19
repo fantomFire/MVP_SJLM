@@ -5,13 +5,23 @@ package com.zhss.sjlm.bean;
  */
 
 public class User {
-    public String getName() {
-        return name;
+
+    public String getBankName() {
+        return bankName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setBankName(String bankName) {
+        this.bankName = bankName;
     }
 
-    private String name;
+    public String getBankCard() {
+        return bankCard;
+    }
+
+    public void setBankCard(String bankCard) {
+        this.bankCard = bankCard;
+    }
+
+    private String bankName;
+    private String bankCard;
 }
