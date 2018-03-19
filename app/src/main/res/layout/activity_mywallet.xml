@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorEDED"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <include layout="@layout/base_activity" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="101dp"
+        android:layout_marginTop="33dp"
+        android:gravity="center">
+
+        <com.zhss.sjlm.tools.CircleImageView
+            android:id="@+id/circle_head"
+            android:layout_width="101dp"
+            android:layout_height="101dp"
+            android:src="@mipmap/moren" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:gravity="center"
+        android:text="账户余额"
+        android:textColor="@color/color3d3d"
+        android:textSize="@dimen/sp_16" />
+
+    <TextView
+        android:id="@+id/tv_wallet_money"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:gravity="center"
+        android:text="¥175.22"
+        android:textColor="@color/color3d3d"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/tv_up"
+        android:layout_width="320dp"
+        android:layout_height="44dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/btn_upload"
+        android:gravity="center"
+        android:text="充值"
+        android:textColor="@color/colorWhite"
+        android:textSize="17sp" />
+
+    <TextView
+        android:id="@+id/tv_withdraw"
+        android:layout_width="320dp"
+        android:layout_height="44dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/btn_upload_white"
+        android:gravity="center"
+        android:text="提现"
+        android:textColor="@color/color3d3d"
+        android:textSize="17sp" />
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1" />
+
+    <LinearLayout
+        android:id="@+id/ll_comment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="常见问题"
+            android:textColor="@color/colorla75ad"
+            android:textSize="13dp" />
+
+        <View
+            android:layout_width="55dp"
+            android:layout_height="2dp"
+            android:background="@color/colorla75ad" />
+    </LinearLayout>
+
+</LinearLayout>

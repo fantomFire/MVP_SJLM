@@ -1,5 +1,6 @@
 package com.zhss.sjlm.ui.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -18,7 +19,6 @@ import butterknife.OnClick;
  */
 //我的钱包
 public class MyWalletActivity extends BaseActivity {
-
 
     @BindView(R.id.tv_center)
     TextView tvCenter;
@@ -57,7 +57,8 @@ public class MyWalletActivity extends BaseActivity {
                 break;
             case R.id.tv_up:
                 break;
-            case R.id.tv_withdraw:
+            case R.id.tv_withdraw://提现
+                startActivity(new Intent(MyWalletActivity.this, WithDrawAativity.class));
                 break;
             case R.id.ll_comment:
                 break;
