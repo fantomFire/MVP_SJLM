@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:orientation="vertical"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
     <RelativeLayout
         android:id="@+id/rl_base_title"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-      android:background="@color/statusBarColor">
+        android:background="@color/statusBarColor">
 
         <LinearLayout
             android:id="@+id/iv_left"
@@ -55,7 +56,24 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:visibility="gone"
+                android:background="@mipmap/tmore"
+                android:visibility="gone" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:visibility="gone"
+            android:id="@+id/ll_add"
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true">
+
+            <ImageView
+                android:id="@+id/iv_right_10"
+                android:layout_marginRight="12dp"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center_vertical"
                 android:background="@mipmap/tmore" />
 
         </LinearLayout>

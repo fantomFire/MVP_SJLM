@@ -1,6 +1,5 @@
 package com.zhss.sjlm.ui.activity;
 
-import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -11,7 +10,6 @@ import com.zhss.sjlm.R;
 import com.zhss.sjlm.base.BaseActivity;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**

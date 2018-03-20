@@ -55,7 +55,8 @@ public class MyWalletActivity extends BaseActivity {
                 break;
             case R.id.tv_wallet_money:
                 break;
-            case R.id.tv_up:
+            case R.id.tv_up://充值
+                startActivity(new Intent(MyWalletActivity.this,UpActivity.class));
                 break;
             case R.id.tv_withdraw://提现
                 startActivity(new Intent(MyWalletActivity.this, WithDrawAativity.class));
