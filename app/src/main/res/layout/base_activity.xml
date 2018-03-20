@@ -45,7 +45,23 @@
             android:textColor="#fff"
             android:textSize="18dp"
             android:visibility="gone" />
-
+        <TextView
+            android:paddingTop="2dp"
+            android:paddingBottom="2dp"
+            android:paddingLeft="12dp"
+            android:paddingRight="12dp"
+            android:background="@drawable/shape_right"
+            android:id="@+id/tv_right_shap"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerInParent="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="15dp"
+            android:text="明细"
+            android:textColor="@color/text_3d"
+            android:textSize="18dp"
+            android:visibility="gone" />
         <LinearLayout
             android:id="@+id/l_share"
             android:layout_width="40dp"

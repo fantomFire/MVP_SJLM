@@ -32,6 +32,8 @@ public class MyWalletActivity extends BaseActivity {
     TextView tvWithdraw;
     @BindView(R.id.ll_comment)
     LinearLayout llComment;
+    @BindView(R.id.tv_right_shap)
+    TextView tvRightShap;
 
     @Override
     protected void initData() {
@@ -41,6 +43,7 @@ public class MyWalletActivity extends BaseActivity {
     @Override
     protected void initView() {
         tvCenter.setText("我的钱包");
+        tvRightShap.setVisibility(View.VISIBLE);
     }
 
     @Override
@@ -48,15 +51,18 @@ public class MyWalletActivity extends BaseActivity {
         return R.layout.activity_mywallet;
     }
 
-    @OnClick({R.id.circle_head, R.id.tv_wallet_money, R.id.tv_up, R.id.tv_withdraw, R.id.ll_comment})
+    @OnClick({R.id.circle_head, R.id.tv_wallet_money, R.id.tv_up, R.id.tv_withdraw, R.id.ll_comment, R.id.tv_right_shap})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.circle_head:
                 break;
             case R.id.tv_wallet_money:
                 break;
+            case R.id.tv_right_shap://明细
+                startActivity(new Intent(MyWalletActivity.this, DetailAvtiviy.class));
+                break;
             case R.id.tv_up://充值
-                startActivity(new Intent(MyWalletActivity.this,UpActivity.class));
+                startActivity(new Intent(MyWalletActivity.this, UpActivity.class));
                 break;
             case R.id.tv_withdraw://提现
                 startActivity(new Intent(MyWalletActivity.this, WithDrawAativity.class));
@@ -65,4 +71,5 @@ public class MyWalletActivity extends BaseActivity {
                 break;
         }
     }
+
 }

@@ -30,6 +30,7 @@
         <activity android:name=".ui.activity.WithDrawAativity"/>
         <activity android:name=".ui.activity.WithDrawInfoAativity"/>
         <activity android:name=".ui.activity.UpActivity"/>
+        <activity android:name=".ui.activity.DetailAvtiviy"/>
         <activity
             android:name="me.iwf.photopicker.PhotoPickerActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="75dp"
+        android:layout_marginLeft="@dimen/dp_10"
+        android:layout_marginRight="50dp"
+        android:orientation="horizontal"
+        android:paddingBottom="15dp"
+        android:paddingTop="15dp">
+
+        <TextView
+            android:id="@+id/tv_pay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="支付"
+            android:textColor="@color/text_3d"
+            android:textSize="15dp" />
+
+        <TextView
+            android:id="@+id/tv_yue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:text="余额"
+            android:textColor="@color/text666"
+            android:textSize="13dp" />
+
+        <TextView
+            android:id="@+id/tv_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text="时间"
+            android:textColor="@color/colorC9C9"
+            android:textSize="13dp" />
+
+        <TextView
+            android:id="@+id/tv_money"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:text="-108.00"
+            android:textColor="@color/colorBlack"
+            android:textSize="18dp" />
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/iv_tip"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="10dp"
+        android:background="@mipmap/moren" />
+
+    <View
+        android:layout_marginTop="71dp"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/e2e2" />
+</RelativeLayout>
